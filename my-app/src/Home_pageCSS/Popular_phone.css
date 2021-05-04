@@ -1,0 +1,13 @@
+.product-list {
+    padding: 3em;
+    max-width: auto;
+    max-height: auto;
+    grid-template-columns: repeat(4,310px);
+    grid-template-rows: repeat(1,1fr);
+    display: grid;
+    grid-gap: 50px;
+    align-items: center;
+    margin-bottom: 2em;
+    background-color: whitesmoke;
+
+}
