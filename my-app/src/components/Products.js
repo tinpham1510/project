@@ -1,275 +1,65 @@
-import React from 'react';
+import React, { useState,useEffect }  from 'react';
 import '../Home_pageCSS/Products.css';
-
-import image1 from '../assets/images/laptop_zenbook.jpg';
-import image2 from '../assets/images/oppo.jpg';
-import image3 from '../assets/images/ipad.jpg';
-import image4 from '../assets/images/airpod.jpg';
-import image5 from '../assets/images/product1.jpg';
-import image6 from '../assets/images/applewwtch.jpg';
+import axios from 'axios';
+import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import useFetch from './fetch'
+import queryString from 'query-string'
 const Products = () => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 4,
+        autoplay: true,
+        speed: 500,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        lazyLoad: true,
+
+      };
+      const [productList,setProductList]=useState()
+      useEffect(() => {
+          async function fetchData(){
+              const requestUrl='http://localhost:9001/api/san-pham'
+              const respone= await fetch(requestUrl);
+              const responseJson= await respone.json();
+              const {data} =responseJson;
+              setProductList(data);
+              console.log(data)
+          }
+          fetchData();
+      }, [])
     return (
-        <section className="container-title">
-           <h6 className="popular-product">Popular Products</h6>
-            <div className="product-list">
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image1}></img>
-                    </div>
-                    <div className="text">
-                        $500.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image2}></img>
-                    </div>
-                    <div className="text">
-                        $200.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image3}></img>
-                    </div>
-                    <div className="text">
-                        $1000.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image4}></img>
-                    </div>
-                    <div className="text">
-                        $50.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image5}></img>
-                    </div>
-                    <div className="text">
-                        $1500.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image6}></img>
-                    </div>
-                    <div className="text">
-                        $400.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image1}></img>
-                    </div>
-                    <div className="text">
-                        $500.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-            
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image1}></img>
-                    </div>
-                    <div className="text">
-                        $500.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image2}></img>
-                    </div>
-                    <div className="text">
-                        $200.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image3}></img>
-                    </div>
-                    <div className="text">
-                        $1000.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image4}></img>
-                    </div>
-                    <div className="text">
-                        $50.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image5}></img>
-                    </div>
-                    <div className="text">
-                        $1500.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image6}></img>
-                    </div>
-                    <div className="text">
-                        $400.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-                <div className="card">
-                    <div Classname="title">
-                        <h5>
-                            Products
-                        </h5>
-                    </div>
-                    <div Classname="img">
-                        <img src={image1}></img>
-                    </div>
-                    <div className="text">
-                        $500.00
-                    </div>
-
-                    <button className="btbuy">
-                        Buy Now
-                    </button>
-
-                </div>
-        
-        
-        
+        <div className="popular">
+            <h6 className="popular__product">Popular Products</h6>
+            <div className="container_title">
+                <Slider {...settings} >
+                    {productList && productList.map(product=>(
+                    <Link to={`/Element_page/${product.MaSP}`}>
+                        <div className="item__element" id={product.MaSP}>
+                            
+                            <div classname="title">
+                                <h5>
+                                    {product.LoaiSP}
+                                </h5>
+                            </div>
+                            <div classname="img">
+                                <img src={product.file&&product.file[0]}></img>
+                            </div>
+                            <div className="text">
+                                {
+                                    product.Gia
+                                }
+                            </div>
+                            <button className="btbuy">
+                                Buy Now
+                            </button>
+                        </div>
+                    </Link>
+                    ))}
+                </Slider>
             </div>
-        </section>
+        </div>
     );
 };
 

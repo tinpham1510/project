@@ -1,24 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login_page.css';
 import image1 from '../assets/images/Vivo.jpg';
+import Homepage from '../Home_pageJS/Home_page';
+import Authorization_Header from '../components/Authorization_Header';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 const Login_page = () => {
+    const [succeed, setSuccess] = useState(false);
+    const [user, setUser] = useState({access_token: "" , isLogin: localStorage.getItem('access_token') != null});
+
+    const login = e =>{
+        e.preventDefault();
+        let request ={
+            TaiKhoan: document.getElementById('Username').value,
+            MatKhau: document.getElementById('Password').value
+
+        }
+        axios.post("http://localhost:9001/api/auth/login", request, {withCredentials: true})
+        .then(resp =>{
+            console.log(resp.data);
+            if(resp.data.success){
+                alert("Login Success!!!!")
+                localStorage.setItem("access_token", resp.data.access_token);
+                setSuccess({
+                    succeed: resp.data.success
+                });
+                setUser({
+                    isLogin: true
+                });
+            }
+            else{
+                alert("Username or Password wrong!!!!")
+            }
+        })
+    }
+
     return (
+        
+        <div>
+        
+        {succeed ? <Homepage key={succeed}/> :
+        <div>
+            <Authorization_Header/>
         <section className="page-container">
             <div className="imgBx">
                 <img src={image1}/>
             </div>
             <div className="contentBx">
                 <div className="formBx">
-                    <h2>Sign In</h2>
-                    <form>
+                    <h2>ĐĂNG NHẬP</h2>
+                    <form onSubmit={login}>
                         <div className="inputBx">
-                            <h6 className="name">Username </h6>
-                            <input type="text" name=""></input>
+                            <h6 className="name">Tài khoản </h6>
+                            <input type="text" id="Username" name="Username"></input>
                         </div>
                         <div className="inputBx">
-                            <h6 className="name">Password </h6>
-                            <input type="password" name=""></input>
+                            <h6 className="name">Mật khẩu </h6>
+                            <input type="password" id="Password" name="Password"></input>
                         </div>
                         <div className="remember">
                             <label>
@@ -27,13 +65,13 @@ const Login_page = () => {
                             </label>
                         </div>
                         <div className="inputBx">
-                            <input type="submit" value="Sign in" name=""/>
+                            <input type="submit" value="Đăng nhập" name=""/>
                         </div>
 
                         <div className="inputBx">
-                            <p>Don't have an account? <a href="#">
+                            <p>Bạn chưa có tài khoản? <a href="#">
                                 <Link to="../SignUp_page">
-                                Sign up
+                                Đăng kí
                                 </Link>
                                 </a></p>
                         </div>
@@ -47,6 +85,9 @@ const Login_page = () => {
                 </div>
             </div>
         </section>
+        </div>
+        }
+        </div>
     );
 };
 

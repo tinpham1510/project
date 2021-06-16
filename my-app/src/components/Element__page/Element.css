@@ -1,0 +1,163 @@
+.active{
+    
+}
+.visible{
+    visibility: visible!important;
+    display: block !important;
+}
+.element__detail{
+    margin-top: 20px;
+}
+.element__detail-tag{
+
+}
+.element__detail-tag .tag__top{
+    font-size: 14px;
+    color: #3BB3BB;
+}
+.element__detail-tag .tag__bottom{
+    font-size: 20px;
+    border-bottom: 1px solid black;
+}
+.element__detail-product{
+ min-height: 500px;
+ display: grid;
+ grid-template-columns: 30% 25% 25%;
+ gap: 10%;
+ margin: 40px 0;
+}
+.element__detail-product .product__image{
+    
+}
+.element__detail-product .product__image .image__top img{
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+.element__detail-product .product__image .image__small{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.element__detail-product .product__image .image__small img{
+    max-height: 70px;
+    width: 30%;
+    object-fit: cover;
+    /* transition: all 0.3s l   inear; */
+    overflow: hidden;
+}
+.element__detail-product .product__image .image__small img:hover{
+    cursor: pointer;
+    border: 2px solid black;
+}
+.element__detail-product .product__info{
+    font-size: 20px;
+    
+}
+.element__detail-product .product__info div{
+    margin-bottom: 20px;
+}
+.element__detail-product .product__info .information{
+    height: 50%;
+    border: 1px solid white ;
+    font-size: 12;
+    font-weight: 100;
+    border-radius: 5px;
+    box-shadow: inset;
+}
+.element__detail-product .product__info .product__info-color .color{
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+    
+}
+.element__detail-product .product__info  .add__button{
+    text-align: center;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #f4101078;
+    border-radius: 50px;
+    width: 100%;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+.element__detail-product .product__info  .add__button:hover{
+    background-color: white;
+    color: #f4101078;
+}
+.element__detail-product .product__guarantee{
+    text-align: center;   
+    font-size: 20px;
+    border: 2px solid #FF0;
+    border-radius: 20px;
+    color: red;
+    height: 60%;
+    word-spacing: 1%;
+}
+.wrap{
+    margin:50px 0
+}
+.wrap__top{
+    text-align: center;
+    /* display: flex; */
+    position: relative;
+}
+.demo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.demo div{
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    transition: all 0.2s linear;
+    margin: 0 20px;
+}
+.demo div:hover
+{
+    cursor: pointer;
+    color: #847b7b;
+    border-bottom: 1px solid #847b7b;
+}
+.wrap__bottom{
+    position: relative;
+    min-height: 100px;
+    margin-top: 20px;
+}
+.wrap__bottom-info{
+    /* position: absolute; */
+    /* bottom: -50px;
+    left: 0; */
+    visibility: hidden;
+    display: none;
+    font-size: large;
+}
+.wrap__bottom-description{
+    /* position: absolute; */
+    /* width: 0; */
+    /* right: 0; */
+    /* bottom:-50px; */
+    visibility: hidden;
+    font-size: large;
+}
+
+.information {
+    color:#3BB3BB;
+    box-shadow: inset;
+    font-size: 90%;
+}
+
+.product__guarantee .BH{
+    list-style:decimal;
+    font-size: 80%;
+    color: black;
+    
+}
+
+h3{
+    color: red;
+}

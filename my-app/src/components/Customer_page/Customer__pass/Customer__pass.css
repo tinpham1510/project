@@ -1,0 +1,29 @@
+.customer__pass {
+}
+.customer__pass .pass__wrap {
+  background-color: rgba(196, 196, 196, 0.21);
+  padding: 10px 10px;
+}
+.customer__pass .pass__wrap .button {
+  display: block;
+  text-align: center;
+}
+.customer__pass .pass__wrap button {
+  background-color: #3bb3bb;
+  color: white;
+  /* display: inline-block; */
+}
+.customer__pass .pass__wrap div {
+  display: grid;
+  grid-template-columns: 35% 60%;
+  gap: 5%;
+  margin: 10px 0;
+  
+}
+
+.customer__pass .pass__wrap input{
+  background: #FFFFFF;
+  border:  1px solid rgba(0, 0, 0, 0.29);
+  box-sizing: border-box;
+  border-radius: 5px;
+}

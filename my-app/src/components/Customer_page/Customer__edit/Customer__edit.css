@@ -1,0 +1,27 @@
+.customer__edit {
+    margin-bottom: 20px;
+  }
+  .customer__edit form {
+    padding: 10px 40px;
+    text-align: center;
+    background-color: rgba(196, 196, 196, 0.21);
+  }
+  .customer__edit form div {
+    margin: 20px 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .customer__edit form div input {
+    background: #FFFFFF;
+    border:  1px solid rgba(0, 0, 0, 0.29);
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .customer__edit button {
+    margin: 0 auto;
+    background-color: #3bb3bb;
+    color: white;
+    border-radius: 5px;
+  }
+  

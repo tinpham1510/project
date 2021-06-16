@@ -1,0 +1,151 @@
+.orders {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --orders-color: #f63;
+  --title-fontsize: 600;
+  --grey: #80808026;
+}
+.orders__top {
+}
+.orders__top-title {
+}
+.orders__top .orders__top-title .title__name {
+  color: red;
+  font-weight: var(--title-fontsize);
+}
+.orders__top .orders__top-title .title__wrap {
+  display: flex;
+  justify-content: space-around;
+  font-size: 18px;
+  padding: 5px 5px;
+  background-color: var(--grey);
+}
+.orders__top .orders__top-title .title__wrap .title__wrap-left {
+  display:flex;
+  align-items:center;
+  padding-left: auto;
+}
+.orders__top .orders__top-title .title__wrap .title__wrap-right {
+}
+.orders__top .orders__top-title .title__wrap .title__wrap-right button {
+  background-color: var(--orders-color);
+  border-radius: 5px;
+  border: 0px solid var(--orders-color);
+  box-shadow: 0 0 0.9rem 0 var(--orders-color);
+  padding: 5px 5px;
+  transition: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.orders__top .orders__top-title .title__wrap .title__wrap-right button:hover{
+  transform: translateY(-4px);
+  color: whitesmoke;
+}
+/* ====================top__list===================== */
+.orders__top-list {
+  border: 0.8px solid rgb(187, 186, 186);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.list__headbar {
+  padding: 5px 0px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 10% 15% 10%;
+  text-align: center;
+  gap: 5%;
+  background-color: var(--grey);
+  font-size: 20px;
+}
+.list__item {
+  margin-bottom: 0px;
+  padding: 0px 5px;
+}
+.list__item-product {
+  margin: 5px 0px;
+  border: 1px solid white;
+}
+.list__item-product .product__delete {
+  text-align: right;
+  color: black;
+}
+.list__item-product .product__delete button {
+  background-color: var(--orders-color);
+  border-radius: 20%;
+  margin-right: 05px;
+  border: none;
+}
+
+.list__item-product .list__item-wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 10% 15% 10%;
+  gap: 5%;
+  margin: 5px 0px;
+}
+.list__item-product span {
+  text-align: center;
+}
+
+.orders__bottom {
+}
+.orders__bottom-title {
+}
+.orders__bottom-list {
+  margin-bottom: 20px;
+}
+.orders__bottom .orders__bottom-list .list__top {
+  display: grid;
+  grid-template-columns: 50% 15% 15%;
+  gap: 10%;
+  text-align: center;
+  font-size: 20px;
+  background-color: var(--grey);
+}
+.orders__bottom-list .list {
+  border: 1px solid black;
+  padding: 0 5px;
+}
+.orders__bottom-list .list .buy__item {
+  display: grid;
+  grid-template-columns: 50% 15% 15%;
+  gap: 10%;
+  border: 1px solid white;
+  margin-top: 5px;
+}
+.orders__bottom-list .list .buy__item span {
+  text-align: center;
+}
+.orders__bottom-list .list__total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.orders__bottom-list .list__total .list__total-left {
+  font-weight: var(--title-fontsize);
+  color: red;
+}
+.orders__bottom-list .list__total .list__total-right h2 {
+  font-weight: var(--title-fontsize);
+  color: red;
+}
+.orders__bottom-list .paybutton {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--orders-color);
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.orders__bottom-list .paybutton:hover {
+  color: white;
+  background-color: orangered;
+}

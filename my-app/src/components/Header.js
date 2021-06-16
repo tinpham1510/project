@@ -23,32 +23,32 @@ export default function Header() {
                     </a>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li>
-                            <a href="#" class="nav-link text-secondary">
-                                Home
+                            <a href="/" class="nav-link text-secondary">
+                                Trang chủ
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link text-secondary">
-                                Dashboard
+                            <a href="/" class="nav-link text-secondary">
+                                Báo cáo
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link text-secondary">
-                                Orders
+                            <a href="/Orders_page" class="nav-link text-secondary">
+                                Giỏ hàng
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link text-secondary">
-                                Products
+                            <a href="/" class="nav-link text-secondary">
+                                Sản phẩm
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link text-secondary">
-                                Customers
+                            <a href="/Customer_page" class="nav-link text-secondary">
+                                Thông tin tài khoản
                             </a>
                         </li>
                     </ul>
@@ -58,9 +58,9 @@ export default function Header() {
                     <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2" onClick={()=>{
                         history.push('../Login_page');
-                    }}>Login</button>
+                    }}>Đăng nhập</button>
                     <button type="button" class="btn btn-warning" onClick={()=>{
-                        history.push('../SignUp_page');}}>Sign-up</button>
+                        history.push('../SignUp_page');}}>Đăng kí</button>
                 </div>
                 </div>
             </div>

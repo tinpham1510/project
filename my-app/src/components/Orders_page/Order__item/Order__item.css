@@ -1,0 +1,32 @@
+.list__item-product {
+  --button-size: 25px;
+}
+.list__item-wrap .product__info {
+  display: flex;
+  font-size: 18px;
+}
+.product__info .product__check {
+  margin-right: 10px;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+.product__info .product__image {
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+}
+.product__info .product__image img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.list__item-wrap .product__num-wrap {
+  text-align: center;
+}
+.list__item-wrap .product__num-wrap button {
+  height: var(--button-size);
+  width: var(--button-size);
+  border-radius: 5px;
+  margin: 0 5px;
+}

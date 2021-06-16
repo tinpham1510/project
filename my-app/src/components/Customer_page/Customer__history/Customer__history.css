@@ -1,0 +1,34 @@
+.Customer__history .Customer__history__table__list{
+    width: 50%;
+    height: 30%;
+    margin: auto;
+    position: absolute;
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 5px;
+}
+
+.Customer__history .Customer__history__table__column{
+    width: 50%;
+    height: 10%;
+    margin: auto;
+    position: absolute;
+    background: #3BB3BB;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    
+}
+
+.Customer__history .Customer__history__table__column .Customer__history__table__content{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFBFB;
+}

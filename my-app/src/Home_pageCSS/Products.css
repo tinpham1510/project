@@ -1,5 +1,5 @@
 
-.container-title .popular-product{
+.popular__product{
     font-size: 35px;
     font-weight: bold;
     text-align: left;
@@ -8,24 +8,11 @@
     max-width: 300px;
     color: black;
 }
-.container-title{
-    background-color: whitesmoke;
+.container_title{
+    background-color: white;
 }
-.product-list {
-    padding: 3em;
-    max-width: auto;
-    max-height: auto;
-    grid-template-columns: repeat(4, 310px);
-    grid-template-rows: repeat(4, 1fr);
-    display: grid;
-    grid-gap: 50px;
-    align-items: center;
-    margin-bottom: 2em;
-    background-color: whitesmoke;
 
-}   
-
-.product-list .card{
+.card{
     background-color: white;
     border-radius: 10px;
     padding: 1em;
@@ -34,11 +21,10 @@
     transition: 0.5s;
     animation-timing-function: ease-in-out;
     animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-
 }
-.product-list > .card:hover{
-    transform: translateY(-1em);
-    box-shadow: 2px 2px 6px 2px;
+.container_title > .card:hover{
+    transform: scale(1px);
+    box-shadow: 2px 2px 6px 2   px;
     cursor: pointer;
 }
 
@@ -49,9 +35,11 @@ h5{
     font-weight: bold;
 }
 
-.card img{
-    max-width: 50%;
-}
+
+.slick-slide div {
+    padding: 5px 15px;
+    overflow: hidden;
+  }
 
 .card .text{
     text-align: center;
@@ -69,17 +57,15 @@ h5{
     margin: auto;
     font-weight: bold;
     text-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-
+    transition: all 0.3s linear;
 }
 
 .btbuy:hover{
-    color: black;
-    cursor: pointer;
-    background: linear-gradient(to right, lightblue, cyan, blue);
+    transform: translateY(-3px);
 }
 
 @media (max-width: 768px){
-    .product-list{
+    .container_title{
         grid-template-columns: repeat(2,1fr);
         margin-bottom: 45cm;
 
@@ -91,8 +77,9 @@ h5{
 }
 
 @media (max-width: 500px){
-    .product-list{
+    .container_title{
         grid-template-columns: repeat(1,1fr);
         margin-bottom: 125cm;
     }
 }
+

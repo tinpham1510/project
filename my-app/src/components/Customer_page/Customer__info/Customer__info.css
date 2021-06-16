@@ -1,0 +1,26 @@
+.customer__info {
+  margin-bottom: 20px;
+}
+.customer__info form {
+  padding: 10px 40px;
+  text-align: center;
+  background-color: rgba(196, 196, 196, 0.21);
+}
+.customer__info form div {
+  margin: 20px 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.customer__info form div input {
+  background: #FFFFFF;
+  border:  1px solid rgba(0, 0, 0, 0.29);
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.customer__info button {
+  margin: 0 auto;
+  background-color: #3bb3bb;
+  color: white;
+  border-radius: 5px;
+}
