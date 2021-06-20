@@ -9,3 +9,8 @@
     font-weight: bold;
     font-size: 16px;    
 }
+
+.container_title{
+    display:inherit;
+}
+

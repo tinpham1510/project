@@ -12,6 +12,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Authorization_Header from "../Authorization_Header";
 import ScrolltoTop from "./ScrolltoTop";
 import axios from "axios";
+import Loading from "../Loading_page/Loading";
 
 Element.propTypes = {
   post: PropTypes.object,
@@ -19,6 +20,7 @@ Element.propTypes = {
 
 function Element(props) {
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
   const routeChange = () => {
     let path = "/Orders_page";
     history.push(path);
@@ -36,7 +38,8 @@ function Element(props) {
       const responseJson = await respone.json();
       const { data } = responseJson;
       setProduct(data);
-      console.log(data)
+      console.log(id)
+      setLoading(true);
     }
     fetchData();
   }, [id]);
@@ -47,6 +50,7 @@ function Element(props) {
       .then(resp=>{
           setImage(resp.data.data.file[0])
       })
+      
     }
     ApiData();
   },[])
@@ -106,6 +110,7 @@ function Element(props) {
   return (
     <div>
       <Authorization_Header/>
+      { loading?
     <div className="element">
       {product && (
         <div>
@@ -137,7 +142,7 @@ function Element(props) {
           
                 <div className="product__info">
                   <h3>{product.TenSP}</h3>
-                  <div>Giá: {product.Gia}</div>
+                  <div>Giá: {product.Gia}$</div>
                   <div>Tình trạng: {product.TinhTrang}</div>
                   <div className="information">Thông tin: {product.MoTa}</div>
                   <div className="product__info-color">
@@ -202,11 +207,13 @@ function Element(props) {
           
         </div>
         
-
+                      
       )}
       <ScrolltoTop/>
-      <Main></Main>
+      <Main key ={product.MaSP}></Main>
     </div>
+    : <Loading/>
+}
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Header from "../Header";
-import Footer from "../Footer";
 import Authorization_Header from "../Authorization_Header";
 import {
   BrowserRouter as Router,
@@ -23,38 +21,78 @@ Orders.defaultProps = {
 
 function Orders(props) {
   const [orders, setOrders] = useState([]);
+  const [checkOders, setCheckOders] = useState(false);
   const history = useHistory();
   useEffect(() => {
+
     if (JSON.parse(localStorage.getItem("orders")))
+    {
+      
       setOrders(JSON.parse(localStorage.getItem("orders")));
+      
+    }
     else {
       setOrders([]);
+      localStorage.setItem('Orders', null);
     }
     // setImage(product.file && product.file[0]);
   }, []);
   useEffect(() => {
     localStorage.setItem("orders", JSON.stringify(orders));
+
   });
   const [cartItem, setCartItem] = useState([]);
 
+
   function onAdd(id, product) {
     setCartItem([...cartItem, { ...product }]);
+    setCheckOders(true);
+    //console.log(cartItem)
+    
   }
+  const cartItem1 = [...cartItem];
   function onRemove(id, product) {
-    const cartItem1 = [...cartItem];
+    
     const exist = cartItem.find((x) => x.id === id);
+    
+    console.log(exist)
     if (exist) {
       setCartItem(cartItem.filter((x) => x.id !== id));
     }
+    setCheckOders(false);
   }
   function onDelete(id) {
     // console.log(id);
     setOrders(orders.filter((order) => order.id !== id));
     localStorage.setItem("orders", JSON.stringify(orders));
+    setCheckOders(false);
+
   }
 
   function ContinueSee(){
     history.push("/");
+  }
+
+  // useEffect(()=>{
+   
+  //   async function getIdSP(id)
+  //   {
+      
+  //     console.log(check)
+    
+  // }
+  //   getIdSP();
+  // },[])
+
+  function onPurchase(){
+    if(checkOders)
+    {
+      history.push('/Purchase_page')
+    }
+    else
+    {
+      alert('Chưa có sản phẩm để tiến hành thanh toán')
+    }
   }
   return (
     <div>
@@ -62,20 +100,28 @@ function Orders(props) {
     <div className="orders">
       <div className="container">
         <div className="orders__top">
+
           <div className="orders__top-title">
             <h3 className="title__name">GIỎ HÀNG</h3>
             <div className="title__wrap">
+             
               <div className="title__wrap-left">
-                <i className="fas fa-check">
-                     Sản phẩm đã được thêm vào giỏ hàng
+                {
+                 checkOders ? 
+                <i id="ID" className="fas fa-check"> Sản phẩm đã được thêm vào giỏ hàng
                 </i>
+                :
+                <i className="fas fa-ban"> Chưa có sản phẩm nào được thêm</i> 
+                }
               </div>
               <div className="title__wrap-right">
                 <button className="" onClick={ContinueSee}>Tiếp tục xem sản phẩm</button>
               </div>
             </div>
           </div>
+          
           <div className="orders__top-list">
+          
             <div className="list__headbar">
               <span>Sản phẩm</span>
               <span>giá</span>
@@ -121,7 +167,9 @@ function Orders(props) {
                 <span>Đã bao gồm thuế VAT</span>
               </div>
             </div>
-            <div className="paybutton">Tiến hành thanh toán</div>
+            <button className="paybutton" onClick={
+                  onPurchase
+            }>Tiến hành thanh toán</button>
           </div>
         </div>
       </div>

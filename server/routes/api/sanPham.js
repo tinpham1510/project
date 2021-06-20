@@ -415,7 +415,7 @@ router.put('/', validator(sanPhamUpdateSchema), async (req, res) => {
             ThoiGianDaSuDung: req.body.ThoiGianDaSuDung
         }
         var result = await collectionSanPham.doc(req.body.MaSP).update(updateSanPham);
-        updateSanPham.MaSP = result.id;
+        updateSanPham.MaSP = req.body.MaSP;
         var fileURL_arr = [];
         console.log(req.body.delete_file.split(','))
         if (req.body.delete_file != null)
@@ -429,18 +429,20 @@ router.put('/', validator(sanPhamUpdateSchema), async (req, res) => {
             if (Array.isArray(req.files?.file)) {
                 for (const file of req.files?.file) {
                     var snapshot = await firebaseApp.storage()
-                        .ref(`SanPham/${result.id}/${file.name}`)
+                        .ref(`SanPham/${updateSanPham.MaSP}/${file.name}`)
                         .put(file.data, { contentType: file.mimetype });
                     var fileURL = await snapshot.ref.getDownloadURL();
+                    await collectionSanPham.doc(req.body.MaSP).update({file: FieldValue.arrayUnion(fileURL)});
                     fileURL_arr.push(fileURL);
                     }
                 }
             else {
                 var file = req.files?.file;
                 var snapshot = await firebaseApp.storage()
-                    .ref(`SanPham/${result.id}/${file.name}`)
+                    .ref(`SanPham/${updateSanPham.MaSP}/${file.name}`)
                     .put(file.data, { contentType: file.mimetype });
                 var fileURL = await snapshot.ref.getDownloadURL();
+                await collectionSanPham.doc(req.body.MaSP).update({file: FieldValue.arrayUnion(fileURL)});
                 fileURL_arr.push(fileURL);
                 }
         }    

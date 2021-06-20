@@ -1,10 +1,8 @@
 import React, { useState,useEffect }  from 'react';
 import '../Home_pageCSS/Products.css';
-import axios from 'axios';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import useFetch from './fetch'
-import queryString from 'query-string'
+
 const Products = () => {
     const settings = {
         dots: true,
@@ -49,7 +47,7 @@ const Products = () => {
                             <div className="text">
                                 {
                                     product.Gia
-                                }
+                                }$
                             </div>
                             <button className="btbuy">
                                 Buy Now

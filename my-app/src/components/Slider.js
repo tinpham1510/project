@@ -18,7 +18,7 @@ const Slider = () => {
   </p>
  
   <p>
-    <Button variant="primary">Explore more</Button>
+    <Button variant="primary" >Explore more</Button>
   </p>
 </div>   
         </div>

@@ -5,6 +5,7 @@ import { Carousel } from 'react-bootstrap';
 import '../Home_pageCSS/Main.css';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import Loading from './Loading_page/Loading';
 
  function Main(){
     let history=useHistory();
@@ -12,6 +13,7 @@ import { Link } from 'react-router-dom';
     //     <Link to="/Element_page"></Link>
     //     // history.push("/Element_page");
     //   }
+    const [loading, setLoading] = useState(false);
       const settings = {
         dots: true,
         infinite: true,
@@ -31,6 +33,7 @@ import { Link } from 'react-router-dom';
             const {data} =responseJson;
             setProductList(data);
             console.log(data)
+            setLoading(true)
         }
         fetchData();
     }, [])
@@ -41,7 +44,7 @@ import { Link } from 'react-router-dom';
         <div class="container2">
              <li class="font">Items</li>
             <div className="container">
-
+            { loading?
                 <Slider {...settings}>
                     {productList && 
                         productList.map(product=>(
@@ -60,7 +63,8 @@ import { Link } from 'react-router-dom';
                 }
                     
                 </Slider>
-
+                : <Loading/>
+            }
             </div>
            
           

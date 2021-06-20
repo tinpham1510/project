@@ -1,7 +1,5 @@
 import React from 'react';
 import '../Home_pageCSS/header.css';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'; 
-import Login_page from '../Login_page/Login_page';
 import { useHistory } from 'react-router-dom';
 export default function Header() {
     let history =useHistory();
@@ -29,19 +27,13 @@ export default function Header() {
                         </li>
 
                         <li>
-                            <a href="/" class="nav-link text-secondary">
-                                Báo cáo
-                            </a>
-                        </li>
-
-                        <li>
                             <a href="/Orders_page" class="nav-link text-secondary">
                                 Giỏ hàng
                             </a>
                         </li>
 
                         <li>
-                            <a href="/" class="nav-link text-secondary">
+                            <a href="/Product_page" class="nav-link text-secondary">
                                 Sản phẩm
                             </a>
                         </li>

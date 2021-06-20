@@ -29,13 +29,13 @@ const Popular_phone = () => {
       }, [])
 
     return (
-        <div className="popular">
-        <h6 className="popular__product">Popular Laptop</h6>
+        <div className="container2">
+        <h6 className="popular__product">Popular Phone</h6>
         <div className="container">
             <Slider className="slider" {...settings} >
                 {productList && productList.map(product=>(
                 <Link to={`/Element_page/${product.MaSP}`}>
-                    <div className="card" id={product.MaSP}>
+                    <div className="item__element" id={product.MaSP}>
                         <div classname="title">
                             <h5>
                                 {product.TenSP}
@@ -48,6 +48,7 @@ const Popular_phone = () => {
                             {
                                 product.Gia
                             }
+                            $
                         </div>
                         <button className="btbuy">
                             Buy Now

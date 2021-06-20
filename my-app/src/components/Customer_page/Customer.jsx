@@ -3,18 +3,18 @@ import PropTypes from "prop-types";
 import Customer__info from "./Customer__info/Customer__info";
 import Customer__history from "./Customer__history/Customer__history";
 import {
-  BrowserRouter as Router,
+  BrowserRouter as 
   Route,
   Switch,
   Link,
-  Redirect,
-  NavLink,
 } from "react-router-dom";
 import "./Customer.css";
 import Customer__pass from "./Customer__pass/Customer__pass";
 import Authorization_Header from "../Authorization_Header";
 import axios from "axios";
 import Customer__edit from "./Customer__edit/Customer__edit";
+import Customer__orders from "./Customer__orders/Customer__orders";
+import Detail___orders from "../Detail___orders/Detail___orders";
 Customer.propTypes = {};
 
 function Customer(props) {
@@ -55,7 +55,7 @@ function Customer(props) {
                   />
                 </div>
                 <div className="top__info">
-                  <div className="top__info-name">{account.TaiKhoan}</div>
+                  <div className="top__info-name">{account.HoTenKH}</div>
                   <div className="top__info-edit">
                     <i></i>
                   </div>
@@ -75,6 +75,14 @@ function Customer(props) {
                     </div>
                     <Link to="/Customer_page/customer__pass">
                       Thay đổi mật khẩu
+                    </Link>
+                  </li>
+                  <li className="action__list-item">
+                    <div className="item__image">
+                      <i class="fa fa-database"></i>
+                    </div>
+                    <Link to="/Customer_page/customer__orders">
+                      Đơn hàng
                     </Link>
                   </li>
                   <li className="action__list-item">
@@ -102,11 +110,21 @@ function Customer(props) {
                   path="/Customer_page/customer__pass"
                   component={Customer__pass}
                 ></Route>
+                 <Route
+                  path="/Customer_page/customer__orders"
+                  component={Customer__orders}
+                ></Route>
                 <Route
                   path="/Customer_page/customer__history"
                   component={Customer__history}
                 ></Route>
+                 <Route
+                  path="/Customer_page/Detail___orders"
+                  component={Detail___orders}
+                ></Route>
                 <Route path="/Customer_page" component={Customer__info}></Route>
+               
+        
               </Switch>
             </div>
           </div>

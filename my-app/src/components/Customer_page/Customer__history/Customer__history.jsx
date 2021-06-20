@@ -9,7 +9,9 @@ function Customer__history(props) {
     <div className="Customer__history">
       <h2>Lịch sử mua hàng</h2>
       <div className="Customer__history__table__column">
-        <li className="Customer__history__table__content">Mã đơn hàng</li>
+        <li className="Customer__history__table__content">Mã đơn hàng
+      
+        </li>
 
         <li className="Customer__history__table__content">Ngày mua</li>
 
@@ -19,7 +21,9 @@ function Customer__history(props) {
 
         <li className="Customer__history__table__content">Trạng thái</li>
       </div>
-      <div className="Customer__history__table__list"></div>
+      <div className="Customer__history__table__list">
+        
+      </div>
     </div>
     </>
   );

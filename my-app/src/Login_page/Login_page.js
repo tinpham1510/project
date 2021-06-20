@@ -3,7 +3,7 @@ import './Login_page.css';
 import image1 from '../assets/images/Vivo.jpg';
 import Homepage from '../Home_pageJS/Home_page';
 import Authorization_Header from '../components/Authorization_Header';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as  Link } from 'react-router-dom';
 import axios from 'axios';
 const Login_page = () => {
     const [succeed, setSuccess] = useState(false);
@@ -19,6 +19,10 @@ const Login_page = () => {
         axios.post("http://localhost:9001/api/auth/login", request, {withCredentials: true})
         .then(resp =>{
             console.log(resp.data);
+            axios.get("http://localhost:9001/api/nguoi-dung/thong-tin",{withCredentials:true})
+            .then(rep=>{
+                localStorage.setItem('loai-nguoi-dung' ,rep.data.data.loai_nguoi_dung);
+            })
             if(resp.data.success){
                 alert("Login Success!!!!")
                 localStorage.setItem("access_token", resp.data.access_token);
@@ -28,6 +32,7 @@ const Login_page = () => {
                 setUser({
                     isLogin: true
                 });
+                
             }
             else{
                 alert("Username or Password wrong!!!!")
@@ -39,7 +44,7 @@ const Login_page = () => {
         
         <div>
         
-        {succeed ? <Homepage key={succeed}/> :
+        {succeed ? <Homepage key={user.isLogin}/> :
         <div>
             <Authorization_Header/>
         <section className="page-container">
@@ -69,8 +74,8 @@ const Login_page = () => {
                         </div>
 
                         <div className="inputBx">
-                            <p>Bạn chưa có tài khoản? <a href="#">
-                                <Link to="../SignUp_page">
+                            <p>Bạn chưa có tài khoản? <a href="/SignUp_page">
+                                <Link to="/SignUp_page">
                                 Đăng kí
                                 </Link>
                                 </a></p>

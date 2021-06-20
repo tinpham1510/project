@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import '../Home_pageCSS/Header_auth.css';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom'; 
-import Login_page from '../Login_page/Login_page';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Header_auth(){
+const Header_auth =()=>{
     let history=useHistory();
     const orders='/Orders_page';
-    function handleClick(a) {
-        history.push(a);
-      }
+    // function handleClick(a) {
+    //     history.push(a);
+    //   }
 
-    const [success,setSuccess]=useState(false);
+    //const [success,setSuccess]=useState(false);
     const [account,setAccount]= useState([]);
   
     useEffect(()=>{
@@ -26,10 +24,13 @@ export default function Header_auth(){
         Data();
       },[])
 
-    function Logout(){
+    const Logout = e  =>{
+        e.preventDefault();
         localStorage.removeItem('access_token');
         alert("Log out Success!!!!")
-        
+        localStorage.removeItem('loai-nguoi-dung');
+        localStorage.removeItem('Orders');
+        history.push("/Login_page");
     }
     return (
         <div className="header_auth">
@@ -56,30 +57,24 @@ export default function Header_auth(){
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link text-secondary">
-                                Báo cáo 
-                            </a>
-                        </li>
-
-                        <li>
                             <a href="/Orders_page" class="nav-link text-secondary">
                                 Giỏ hàng
                             </a>
                         </li>
 
                         <li>
-                            <a href="/" class="nav-link text-secondary">
+                            <a href="/Product_page" class="nav-link text-secondary">
                                 Sản phẩm
                             </a>
                         </li>
 
                         <li>
                             <a href="/Customer_page" class="nav-link text-secondary">
-                                {account.TaiKhoan}
+                                {account.HoTenKH}
                             </a>
                         </li>
                     </ul>
-                    <button type="button" class="btn btn-outline-light me-2" onClick={Logout}>Đăng xuất</button>
+                    <button type="button" class="btn btn-outline-light me-2" onClick={Logout} >Đăng xuất</button>
                     <form class="col-12 col-lg auto mb-3 mb-lg-0 me-lg-3">
                         <input type="search" class="form-auth-control" placeholder="Search..."></input>
                         
@@ -94,3 +89,5 @@ export default function Header_auth(){
         </div>  
     );
 };
+
+export default Header_auth;

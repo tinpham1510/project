@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./Order__item.css";
 import Authorization_Header from "../../Authorization_Header";
+import axios from "axios";
+import { useEffect } from "react";
 
 Order__item.propTypes = {
   order: PropTypes.object,
@@ -18,19 +20,61 @@ function Order__item(props) {
   // const [check, setCheck] = useState(false);
   const { order, onAdd, onRemove, onDelete } = props;
   const [order1, setOrder1] = useState(order);
+  const [getData, setData] = useState([]);
   // function handleCheck(e) {
   //   const a = order.id;
   //   onChosen(a, e.target.checked, order);
   // }
+  const ID = order1.id;
+  const [toString, getstring]= useState("")
+  useEffect(()=>{
+    axios.get(`http://localhost:9001/api/san-pham/${ID}`,{withCredentials: true}).then(
+      resp=>{
+        //console.log(resp.data.data)
+        setData(resp.data.data)
+        getstring(ID)
+      }
+    )
+  },[])
+
+
   function check(e) {
     const a = order1.id;
-    console.log(a);
+    e.preventDefault();
+    //console.log(a);
     if (e.target.checked) {
       onAdd(a, order1);
+      let request ={
+        MaSP: toString,
+        SoLuong: getData.SoLuong
+      };
+      axios.post("http://localhost:9001/api/gio-hang", request , {withCredentials: true})
+      .then(resp=>{
+          
+      })
+      
     } else {
       onRemove(a, order1);
+      let request ={
+        MaSP: toString
+  
+      }
+      axios({
+        method: 'delete',
+        url: 'http://localhost:9001/api/gio-hang',
+        data: request,
+        withCredentials: true,
+      }).then(resp=>{
+        console.log(resp.data.data)
+      })
     }
   }
+
+  function RemoveID(e){
+    
+  }
+
+  
 
   const handleCountMinus = (e) => {
     // if(order1.count)
@@ -41,6 +85,21 @@ function Order__item(props) {
   }
   const handleDelete = () => {
     onDelete(order1.id);
+    let request ={
+        MaSP: order1.id.toString()
+  
+      }
+     
+      axios({
+        method: 'delete',
+        url: 'http://localhost:9001/api/gio-hang',
+        data: request,
+        withCredentials: true,
+      }).then(resp=>{
+        console.log(resp.data.data)
+      })
+      
+
   };
   return (
     <div>

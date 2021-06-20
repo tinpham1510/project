@@ -1,0 +1,27 @@
+.container .title{
+    color: rgb(15, 206, 34);
+}
+
+.container .btnDathang{
+    background-color: #f63;
+    border-radius: 5px;
+    border: 0px solid #f63;
+    box-shadow: 0 0 0.9rem 0 #f63;
+    padding: 5px 5px;
+    transition: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    color: black;
+    box-shadow: 5px;
+    font-size: 30px;
+}
+
+.container .btnDathang:hover{
+    transform: translateY(-4px);
+    color: whitesmoke;
+}
+
+.button1{
+    text-align: center;
+    margin-bottom: 10%;
+}

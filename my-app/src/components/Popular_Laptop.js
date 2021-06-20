@@ -1,10 +1,7 @@
 import '../Home_pageCSS/Popular_Laptop.css';
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import image1 from '../assets/images/Acer.jpg';
 
-import axios from 'axios';
-import Products from './Products';
 import { Link } from 'react-router-dom';
 const breakPoints = [
     {
@@ -16,7 +13,7 @@ const Accessories = () => {
         dots: true,
         infinite: true,
         fade: true,
-        slidesToShow: 1,
+        slidesToShow: 3,
         autoplay: true,
         speed: 500,
         autoplaySpeed: 2000,
@@ -38,13 +35,13 @@ const Accessories = () => {
       }, [])
 
     return (
-        <div className="popular">
+        <div className="container2">
         <h6 className="popular__product">Popular Laptop</h6>
         <div className="container">
-            <Slider className="slider" {...settings} >
+           <Slider {...settings}>
                 {productList && productList.map(product=>(
                 <Link to={`/Element_page/${product.MaSP}`}>
-                    <div className="card" id={product.MaSP}>
+                    <div className="item__element" id={product.MaSP}>
                         <div classname="title">
                             <h5>
                                 {product.TenSP}
@@ -57,6 +54,7 @@ const Accessories = () => {
                             {
                                 product.Gia
                             }
+                            $
                         </div>
                         <button className="btbuy">
                             Buy Now
@@ -64,7 +62,8 @@ const Accessories = () => {
                     </div>
                 </Link>
                 ))}
-            </Slider>
+                </Slider>
+
         </div>
     </div>
     );

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./Customer__pass.css";
 import axios from "axios";
 import * as ReactBoostrap from 'react-bootstrap';
+import Loading from "../../Loading_page/Loading";
 Customer__pass.propTypes = {};
 
 function Customer__pass(props) {
@@ -58,11 +59,7 @@ function Customer__pass(props) {
         </div>
       )}
     </div>
-    : <ReactBoostrap.Spinner animation="grow" >
-    <div>
-    <span className="sr-only">Loading...</span>
-    </div>
-     </ReactBoostrap.Spinner>
+    : <Loading></Loading>
 }
     </>
   );

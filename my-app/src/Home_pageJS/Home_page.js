@@ -7,15 +7,17 @@ import Product from '../components/Products';
 import Laptop from '../components/Popular_Laptop';
 import Phone from '../components/Popular_phone';
 import Authorization_Header from '../components/Authorization_Header';
+import Other from '../components/Others_product';
 const Home_page = () => {
     return (
         <div>
-            <Authorization_Header/>
+            <Authorization_Header />
             <Slider/>
             <Main/>
             <Product/>
             <Laptop/>
             <Phone/>
+            <Other/>
         </div>
     );
 };

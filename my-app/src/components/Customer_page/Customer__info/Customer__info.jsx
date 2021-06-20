@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./Customer__info.css";
 import { useHistory, useParams } from 'react-router-dom';
 import axios from "axios";
-import * as ReactBoostrap from 'react-bootstrap';
+import Loading from "../../Loading_page/Loading";
 Customer__info.propTypes = {};
 function Customer__info(props) {
-  const { id } = useParams();
   var history = useHistory(); 
   const [account, setAccount] = useState([]);
   const [loading, setLoading] = useState(false)
@@ -27,11 +26,7 @@ function Customer__info(props) {
   return (
     <>
     {!loading ? 
-    <ReactBoostrap.Spinner animation="grow" >
-      <div>
-      <span className="sr-only">Loading...</span>
-      </div>
-       </ReactBoostrap.Spinner>
+    <Loading/>
         : 
     <div className="customer__info">
       { account && (

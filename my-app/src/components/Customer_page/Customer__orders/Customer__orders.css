@@ -1,0 +1,21 @@
+.Customer__orders{
+    width: 120%;
+    height: 300px;
+    font-size:larger;
+}
+
+.Customer__orders th{
+    font-size: 20px;
+    font-weight: 100;
+    
+}
+
+.Customer__orders thead{
+    background-color: #3bb3bb;
+    color: white;
+    text-align: center; 
+}
+
+.Customer__orders tbody{
+    font-size: 15px;
+}

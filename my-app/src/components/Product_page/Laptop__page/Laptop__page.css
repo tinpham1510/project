@@ -1,0 +1,36 @@
+.product-list{
+    background-color: #dfe6e9;
+    padding: 3em;
+    text-align: center;
+}
+
+
+.card .title{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.card img{
+    max-width: 430%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(1,auto);
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+}
+
+.card:hover{
+    cursor: pointer;
+    transform: translateY(-10px);
+}
+
+.product-container a{
+    text-decoration: none;
+}
+
