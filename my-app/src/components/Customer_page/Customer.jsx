@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Customer__info from "./Customer__info/Customer__info";
 import Customer__history from "./Customer__history/Customer__history";
-import {
-  BrowserRouter as 
-  Route,
-  Switch,
-  Link,
-} from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import "./Customer.css";
 import Customer__pass from "./Customer__pass/Customer__pass";
 import Authorization_Header from "../Authorization_Header";
@@ -103,7 +98,7 @@ function Customer(props) {
                   component={Customer__info}
                 ></Route>
                 <Route
-                  path="/Customer_page/customer__edit"
+                  path="/Customer_page/Customer__edit"
                   component={Customer__edit}
                 ></Route>
                 <Route
@@ -119,7 +114,7 @@ function Customer(props) {
                   component={Customer__history}
                 ></Route>
                  <Route
-                  path="/Customer_page/Detail___orders"
+                  path="/Customer_page/Detail___orders/:id"
                   component={Detail___orders}
                 ></Route>
                 <Route path="/Customer_page" component={Customer__info}></Route>
